@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Drag and drop generic components </span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<div class="example-container1">
+  <div id="even" cdkDropList [cdkDropListData]="even" cdkDropListConnectedTo="dataArry" class="example-list"
+    (cdkDropListDropped)="drop($event,refa)">
+    <div #refa class="container container-a"></div>
+  </div>
+</div>
+
+<div class="example-container2">
+  <span class="header">Drag item from list</span>
+  <div id="dataArry" cdkDropList [cdkDropListData]="dataArry" cdkDropListConnectedTo="even" class="example-list">
+    <div class="example-box" *ngFor="let item of dataArry" [cdkDragData]="item" cdkDrag>{{item.name}}</div>
+
+  </div>
+</div>
